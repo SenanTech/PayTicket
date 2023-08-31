@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Facture;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,12 @@ use App\Http\Controllers\PaymentController;
 |
 */
 
+
 Route::get('/', function () { return view('home');})->name('home');
 
 Route::get('/payment', [PaymentController::class , "SavePayment"])->name('payment');
 
+
+Route::get('/facture', [Facture::class, 'generate'] );
+Route::get('/factureQr', function (){return view("facture");});
 
