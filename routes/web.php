@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('home');});
+Route::get('/', function () { return view('home');})->name('home');
+
+Route::get('/payment', [PaymentController::class , "SavePayment"])->name('payment');
+
+
