@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Facture;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('home');});
+
+Route::get('/facture', [Facture::class, 'generate'] );
+Route::get('/factureQr', function (){return view("facture");});
